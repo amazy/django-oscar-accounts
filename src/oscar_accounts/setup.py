@@ -9,7 +9,7 @@ def create_default_accounts():
     assets = AccountType.add_root(name=names.ASSETS)
     sales = assets.add_child(name=names.SALES)
 
-    sales.accounts.create(name=names.REDEMPTIONS)
+    sales.accounts.create(code=names.REDEMPTIONS_CODE, name=names.REDEMPTIONS_CODE)
     sales.accounts.create(name=names.LAPSED)
 
     cash = assets.add_child(name=names.CASH)
@@ -21,6 +21,6 @@ def create_default_accounts():
 
     # Create liability accounts
     liabilities = AccountType.add_root(name=names.LIABILITIES)
-    income = liabilities.add_child(name=names.DEFERRED_INCOME)
+    income = liabilities.add_child(code=names.DEFERRED_INCOME_CODE, name=names.DEFERRED_INCOME_CODE)
     for i, name in enumerate(names.DEFERRED_INCOME_ACCOUNT_TYPES):
         income.add_child(name=name)

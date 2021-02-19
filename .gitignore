@@ -20,3 +20,6 @@ settings_local.py
 
 # Virtual environment
 venv
+
+# IDEs
+.idea/

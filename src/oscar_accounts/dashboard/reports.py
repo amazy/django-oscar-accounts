@@ -67,12 +67,12 @@ class ProfitLossReport(object):
 
     def get_deferred_income_data(self, ctx):
         deferred_income = AccountType.objects.get(
-            name=names.DEFERRED_INCOME)
+            code=names.DEFERRED_INCOME_CODE)
         redeem_rows = []
         closure_rows = []
         refund_rows = []
         redeem_total = closure_total = refund_total = D('0.00')
-        redemptions_act = Account.objects.get(name=names.REDEMPTIONS)
+        redemptions_act = Account.objects.get(code=names.REDEMPTIONS_CODE)
         lapsed_act = Account.objects.get(name=names.LAPSED)
         for child in deferred_income.get_children():
             child_redeem_total = D('0.00')

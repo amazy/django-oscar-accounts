@@ -216,7 +216,7 @@ class AccountRedemptionsView(JSONView):
         if not account.is_debit_permitted(amt):
             raise ValidationError(errors.INSUFFICIENT_FUNDS)
 
-        redemptions = Account.objects.get(name=names.REDEMPTIONS)
+        redemptions = Account.objects.get(code=names.REDEMPTIONS_CODE)
         try:
             transfer = facade.transfer(
                 account, redemptions, amt,
@@ -247,7 +247,7 @@ class AccountRefundsView(JSONView):
         account = get_object_or_404(Account, code=self.kwargs['code'])
         if not account.is_active():
             raise ValidationError(errors.ACCOUNT_INACTIVE)
-        redemptions = Account.objects.get(name=names.REDEMPTIONS)
+        redemptions = Account.objects.get(code=names.REDEMPTIONS_CODE)
         try:
             transfer = facade.transfer(
                 redemptions, account, payload['amount'],

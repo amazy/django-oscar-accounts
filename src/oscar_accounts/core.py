@@ -6,7 +6,7 @@ Account = get_model('oscar_accounts', 'Account')
 
 
 def redemptions_account():
-    return Account.objects.get(name=names.REDEMPTIONS)
+    return Account.objects.get(code=names.REDEMPTIONS_CODE)
 
 
 def lapsed_account():

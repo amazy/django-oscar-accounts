@@ -329,10 +329,10 @@ class DeferredIncomeReportView(generic.FormView):
         rows = []
         totals = {'total': D('0.00'),
                   'num_accounts': 0}
-        for acc_type_name in names.DEFERRED_INCOME_ACCOUNT_TYPES:
-            acc_type = AccountType.objects.get(name=acc_type_name)
+        for acc_type_code in names.DEFERRED_INCOME_ACCOUNT_TYPES:
+            acc_type = AccountType.objects.get(name=acc_type_code)
             data = {
-                'name': acc_type_name,
+                'name': acc_type.name,
                 'total': D('0.00'),
                 'num_accounts': 0,
                 'num_expiring_within_30': 0,

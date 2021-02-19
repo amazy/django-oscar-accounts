@@ -8,7 +8,7 @@ UNIT_NAME_PLURAL = getattr(settings, 'ACCOUNTS_UNIT_NAME_PLURAL',
 
 # Account where money is transferred to when an account is used to pay for an
 # order.
-REDEMPTIONS = getattr(settings, 'ACCOUNTS_REDEMPTIONS_NAME', 'Redemptions')
+REDEMPTIONS_CODE = getattr(settings, 'ACCOUNTS_REDEMPTIONS_CODE', 'Redemptions').upper()
 
 # Account where money is transferred to when an account expires and is
 # automatically closed
@@ -32,7 +32,7 @@ LIABILITIES = 'Liabilities'
 
 UNPAID_ACCOUNT_TYPE = "Unpaid accounts"
 
-DEFERRED_INCOME = "Deferred income"
+DEFERRED_INCOME_CODE = "Deferred income"
 
 DEFERRED_INCOME_ACCOUNT_TYPES = getattr(
     settings, 'ACCOUNTS_DEFERRED_INCOME_ACCOUNT_TYPES',

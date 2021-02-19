@@ -48,7 +48,7 @@ class EditAccountForm(forms.ModelForm):
             "You may need to create a product range first")
 
         # Add field for account type (if there is a choice)
-        deferred_income = AccountType.objects.get(name=names.DEFERRED_INCOME)
+        deferred_income = AccountType.objects.get(code=names.DEFERRED_INCOME_CODE)
         types = deferred_income.get_children()
         if types.count() > 1:
             self.fields['account_type'] = forms.ModelChoiceField(
