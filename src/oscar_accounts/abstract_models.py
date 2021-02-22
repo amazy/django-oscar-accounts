@@ -65,6 +65,8 @@ class Account(models.Model):
     code = models.CharField(
         max_length=128, unique=True, null=True, blank=True)
 
+    is_shop_account = models.BooleanField(default=False, help_text=_("This account belongs to the shop"))
+
     # Each account can have multiple users who can use it for transactions.  In
     # most cases, there will only be one user and so we use a 'primary'
     # user FK for this scenario for simplicitiy.
@@ -212,7 +214,7 @@ class Account(models.Model):
         """
         Test whether this account can be edited within the dashboard
         """
-        return self.code is not None
+        return not self.is_shop_account
 
     def can_be_authorised_by(self, user=None):
         """
